@@ -78,7 +78,7 @@ class SignIn extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     const endpoint =
-      'https://oer-bookr-api.herokuapp.com/books/login';
+      'https://oer-bookr-api.herokuapp.com/login';
     axios
       .post(endpoint, {
         username: this.state.username,

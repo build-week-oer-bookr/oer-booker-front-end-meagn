@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
@@ -19,5 +19,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;

@@ -70,7 +70,7 @@ class Register extends React.Component {
     handleSubmit = e => {
       e.preventDefault();
       const endpoint =
-        'https://oer-bookr-api.herokuapp.com/books/register';
+        'https://oer-bookr-api.herokuapp.com/register';
       axios
         .post(endpoint, {
           username: this.state.username,
@@ -79,7 +79,7 @@ class Register extends React.Component {
         .then(res => {
           console.log(res.data);
           localStorage.setItem("jwt", res.data.token);
-          this.props.history.push("/");
+          this.props.history.push("/login");
         })
         .catch(err => {
           this.setState({ errorMessage: err.response.data.message });
