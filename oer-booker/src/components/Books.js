@@ -4,12 +4,12 @@ const Books = props => {
     return (
         <div className='books-container'>
             <h1>Books</h1>
-            {props.books.map((n, i) => {
+            {props.books.map((b, i) => {
                 return(
                     <div key={i}>
-                            <img src={n.image} />
-                            {n.title}
-                            {n.author}
+                            <img src={b.image} /> <br/>
+                            {b.title} <br/>
+                            {b.author} <br/>
                     </div>
                 )
             })}
