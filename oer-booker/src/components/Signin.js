@@ -87,7 +87,7 @@ class SignIn extends React.Component {
       .then(res => {
         console.log(res.data);
         localStorage.setItem("jwt", res.data.token);
-        this.props.history.push("/");
+        this.props.history.push("/books");
       })
       .catch(err => {
         this.setState({ errorMessage: err.response.data.message });
