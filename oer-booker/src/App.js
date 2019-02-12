@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <>
         <nav>
-          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/books'>Home</NavLink>
         </nav>
         <div className='app-container'>
           <Route path='/login' component={SignIn} />
