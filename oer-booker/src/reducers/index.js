@@ -6,8 +6,10 @@ import {
 
 const initialState = {
     books: [],
+    reviews: [],
     gettingBooks: false,
     gettingBook: false,
+    gettingReviews: false,
     error: null
 }
 
@@ -30,7 +32,6 @@ const reducer = (state = initialState, action) => {
                 gettingBooks: false,
                 error: action.payload
             }
-
             default:
         return state;
     }
