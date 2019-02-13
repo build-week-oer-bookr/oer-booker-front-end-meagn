@@ -2,6 +2,7 @@ import {
     GET_BOOKS,
     GET_BOOKS_SUCCESS,
     GET_BOOKS_FAIL,
+    DELETE_BOOK
 } from '../actions';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
     gettingBooks: false,
     gettingBook: false,
     gettingReviews: false,
+    deletingBook: false,
     error: null
 }
 
@@ -31,6 +33,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 gettingBooks: false,
                 error: action.payload
+            }
+            case DELETE_BOOK: 
+            return {
+                ...state,
+                deletingBook: true
             }
             default:
         return state;

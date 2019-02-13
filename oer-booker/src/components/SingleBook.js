@@ -114,7 +114,7 @@ class SingleBook extends React.Component {
                 <h4>{book.author}</h4>
                 <h5>{book.publisher}</h5>
                 <h6>{book.license}</h6>
-                <a href={book.link}>Link to Book</a>
+                <a href={book.link}>Link to Book</a> <br/>
                 <button type='button' onClick={this.showModal}>Add Review</button>
                 {filteredReviews.map(review => {
                     return (
@@ -124,7 +124,8 @@ class SingleBook extends React.Component {
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
-                            <button onClick={e => this.deleteReview(e, review.id)}>Delete</button>
+                            <i class="fas fa-eraser" onClick={e => this.deleteReview(e, review.id)}>Remove Review</i>
+                            {/* <button onClick={e => this.deleteReview(e, review.id)}>Delete</button> */}
                         
                             <Modal show={this.state.show} handleClose={this.hideModal}>
                                 <form>

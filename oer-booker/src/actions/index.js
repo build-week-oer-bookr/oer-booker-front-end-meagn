@@ -5,6 +5,7 @@ export const GET_BOOKS_FAIL = 'GET_BOOKS_FAIL';
 export const GET_BOOK = 'GET_BOOK';
 export const GET_BOOK_SUCCESS = 'GET_BOOK_SUCCESS';
 export const GET_BOOK_FAIL = 'GET_BOOK_FAIL';
+export const DELETE_BOOK = 'DELETE_BOOK';
 
 
 const endpoint = 'https://oer-bookr-api.herokuapp.com/books';
@@ -30,6 +31,12 @@ export const getBooks = () => dispatch => {
               payload: err
             });
           });
+}
+
+export const deleteBook = () => dispatch => {
+  dispatch({
+      type: DELETE_BOOK
+  })
 }
 
 

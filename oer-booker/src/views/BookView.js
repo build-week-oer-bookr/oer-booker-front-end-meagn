@@ -8,6 +8,7 @@ class BookView extends Component {
         this.props.getBooks()
 
     }
+    
     render() {
         return (
             <SingleBook {...this.props} gettingBooks={this.props.gettingBooks}  />
