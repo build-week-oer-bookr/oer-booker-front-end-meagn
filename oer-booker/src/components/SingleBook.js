@@ -10,8 +10,8 @@ class SingleBook extends React.Component {
             reviews: [],
             singleReview: {
                review: '',
-               reviewer: '',
-               rating: '',
+               reviewer: 'Megan',
+               rating: 3,
                book_id: null
             }
         }
@@ -88,10 +88,11 @@ class SingleBook extends React.Component {
                 <h5>{book.publisher}</h5>
                 <h6>{book.license}</h6>
                 <a href={book.link}>Link to Book</a>
+                <button type='button' onClick={this.showModal}>Add Review</button>
                 {filteredReviews.map(review => {
                     return (
                         <>
-                        <button type='button' onClick={this.showModal}>Add Review</button>
+                        
                         <div>
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
