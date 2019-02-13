@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Route, withRouter } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import Register from './components/Register';
 import BooksView from './views/BooksView';
@@ -16,7 +16,7 @@ class App extends Component {
         <div className='app-container'>
           <Route path='/login' component={SignIn} />
           <Route path='/register' component={Register} />
-          <Route path='/books' component={BooksView} />
+          <Route exact path='/books' component={BooksView} />
           <Route path='/books/:id' component={BookView} />
         </div>
       </>
@@ -25,4 +25,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default withRouter(App);

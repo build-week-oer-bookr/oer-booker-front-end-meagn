@@ -1,31 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getBook } from '../actions';
-import Book from '../components/Book';
+import { getBooks } from '../actions';
+import SingleBook from '../components/SingleBook';
 
 class BookView extends Component {
     componentDidMount() {
-        this.props.getBook(this.props.match.params.bookId)
+        this.props.getBooks()
+
     }
     render() {
         return (
-            <Book Book={this.props.book} />
+            <SingleBook {...this.props} gettingBooks={this.props.gettingBooks} />
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        ...state
+        books: state.books,
+        gettingBooks: state.gettingBooks
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getBook: id => dispatch(getBook(id))
-    }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookView);
+export default connect(mapStateToProps, {getBooks})(BookView);
 
 

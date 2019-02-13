@@ -6,20 +6,20 @@ import * as serviceWorker from './serviceWorker';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers';
-import {BrowserRouter as Router, withRouter } from 'react-router-dom';
+import {BrowserRouter as Router } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
 
 const store = createStore( rootReducer, applyMiddleware(logger, thunk ));
 
-const AppWithRouter = withRouter(App);
+
 
 
 ReactDOM.render(
     <Provider store={store}>
         <Router>
-            <AppWithRouter />
+            <App />
         </Router>
     </Provider>, document.getElementById('root'));
 

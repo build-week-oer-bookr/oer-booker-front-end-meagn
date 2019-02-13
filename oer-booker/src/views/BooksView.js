@@ -10,21 +10,17 @@ class BooksView extends Component {
 
     render() {
         return (
-            <Books books={this.props.books} />
+            <Books {...this.props} />
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        ...state
+        books: state.books
     };
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getBooks: () => dispatch(getBooks())
-    }
-}
 
-export default connect( mapStateToProps, mapDispatchToProps)(BooksView);
+
+export default connect( mapStateToProps, { getBooks })(BooksView);

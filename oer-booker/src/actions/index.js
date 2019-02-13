@@ -33,23 +33,25 @@ export const getBooks = () => dispatch => {
 }
 
 
-export const getBook = id => dispatch => {
-    dispatch({ 
-        type: GET_BOOK 
-    })
-    axios
-        .get(`${endpoint}/${id}`, id)
-        .then(res => {
-            return dispatch ({
-                type: GET_BOOK_SUCCESS,
-                payload: res.data
-            })
-        })
-        .catch(err => {
-            return dispatch({
-                type: GET_BOOK_FAIL,
-                payload: err
-            })
+// export const getBook = id => dispatch => {
+//     dispatch({ 
+//         type: GET_BOOK 
+//     })
+//     axios
+//         .get(`${endpoint}/${id}`, {
+//             headers: {Authorization: localStorage.getItem('jwt')}
+//         })
+//         .then(res => {
+//              dispatch ({
+//                 type: GET_BOOK_SUCCESS,
+//                 payload: res.data
+//             })
+//         })
+//         .catch(err => {
+//              dispatch({
+//                 type: GET_BOOK_FAIL,
+//                 payload: err
+//             })
 
-        });
-}
+//         });
+// }

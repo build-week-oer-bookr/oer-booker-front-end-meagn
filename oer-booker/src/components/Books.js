@@ -8,8 +8,10 @@ const Books = props => {
                 return(
                     <div className='card-container' key={i}>
                             {b.subject}
-                            <img src={b.image} /> <br/>
-                            {b.title} <br/>
+                            <img src={b.image} alt={'book'} /> <br/>
+                            <Link to={`/books/${b.id}`}>
+                                {b.title} <br/>
+                            </Link>
                             {b.author} <br/>
                     </div>
                 )
@@ -19,4 +21,3 @@ const Books = props => {
 }
 
 export default Books;
-
