@@ -1,4 +1,4 @@
 [build]
-base = "oer-booker"
-publish = "oer-booker/build/"
-command = "yarn build"
+base="oer-booker"
+publish="oer-booker/build/"
+command="yarn build"
