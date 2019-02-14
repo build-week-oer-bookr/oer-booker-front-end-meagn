@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import  books  from './pexels-photo.jpg'
+import  booksImg  from './pexels-photo.jpg'
 import '../App.css';
 
 const HeaderImg = styled.div`
@@ -23,7 +23,7 @@ const Header = () => {
     return (
         <div className='header'>
             <HeaderImg>
-                <img className='header-img' src={books} alt="books" className="head-img"/>
+                <img className='header-img' src={booksImg} alt="books"/>
             </HeaderImg>
             <HeaderOne>
                 <h1>OER-BOOKR</h1>

@@ -6,19 +6,29 @@ import Header from './components/Header';
 import BooksView from './views/BooksView';
 import BookView from './views/BookView';
 import './App.css';
+import styled from 'styled-components';
+
+const Nav = styled.div`
+  background-color: gray;
+  padding: 2%;
+  font-size: 1.5rem;
+  display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+`;
 
 class App extends Component {
   render() {
     return (
       <>
-        <nav>
+        <Nav>
           <NavLink to='/books'>
-            <i class="fas fa-book">Home</i>
+            <i class="fas fa-book" style={{ textDecoration: 'none', color: 'white' }}> Home</i>
           </NavLink>
           <NavLink to='/login'>
-            <i class="fas fa-sign-in-alt">SignIn</i>
+            <i class="fas fa-sign-in-alt" style={{ textDecoration: 'none', color: 'white' }}> SignIn</i>
           </NavLink>
-        </nav>
+        </Nav>
         <div className='app-container'>
           <Route exact path='/login' component={SignIn} />
           <Route exact path='/register' component={Register} />

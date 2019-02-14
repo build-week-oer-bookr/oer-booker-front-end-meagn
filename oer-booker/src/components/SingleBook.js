@@ -128,9 +128,9 @@ class SingleBook extends React.Component {
         const filteredReviews = this.state.reviews.filter(review => review.book_id === book.id);
         
         return (
-            <div>
+            <div className='book-card'>
                 <h2>{book.subject}</h2>
-                <img src={book.image} alt='book-image' />
+                <img src={book.image} alt='book' />
                 <h3>{book.title}</h3>
                 <h4>{book.author}</h4>
                 <h5>{book.publisher}</h5>
@@ -141,10 +141,10 @@ class SingleBook extends React.Component {
                     return (
                         <>
                         
-                        <div>
-                            <p>{review.rating}</p>
-                            <p>{review.review}</p>
-                            <p>{review.reviewer}</p>
+                        <div className='reviews'>
+                            <p>{review.rating}</p> <br/>
+                            <p>{review.review}</p> <br/>
+                            <p>{review.reviewer}</p> <br/>
                             <button onClick={e => this.deleteReview(e, review.id)}><i class="fas fa-eraser">Remove Review</i></button>
                             <button type='button' onClick={this.showModal}><i class="fas fa-edit">Edit Review</i></button>
                             {/* <button onClick={e => this.deleteReview(e, review.id)}>Delete</button> */}
@@ -177,7 +177,7 @@ class SingleBook extends React.Component {
                                     <div class="baseline" />
                                 </form>
                                 <button onClick={this.addReview}>Add</button>
-                                <button onClick={this.updateReview}>Update Review</button>
+                                <button onClick={this.updateReview}>Update</button>
                             </Modal>
                       </div>
                       </>
