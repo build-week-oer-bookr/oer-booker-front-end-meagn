@@ -5,6 +5,7 @@ import Register from './components/Register';
 import Header from './components/Header';
 import BooksView from './views/BooksView';
 import BookView from './views/BookView';
+import navImg  from './open-book.png'
 import './App.css';
 import styled from 'styled-components';
 
@@ -25,6 +26,7 @@ class App extends Component {
           <NavLink to='/books'>
             <i class="fas fa-book" style={{ textDecoration: 'none', color: 'white' }}> Home</i>
           </NavLink>
+          <img src={navImg} alt='open-book' />
           <NavLink to='/login'>
             <i class="fas fa-sign-in-alt" style={{ textDecoration: 'none', color: 'white' }}> SignIn</i>
           </NavLink>
