@@ -20,9 +20,9 @@ class App extends Component {
           </NavLink>
         </nav>
         <div className='app-container'>
-          <Route path='/login' component={SignIn} />
-          <Route path='/register' component={Register} />
-          <Header />
+          <Route exact path='/login' component={SignIn} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/books' component={Header} />
           <Route exact path='/books' component={BooksView} />
           <Route path='/books/:id' component={BookView} />
         </div>
