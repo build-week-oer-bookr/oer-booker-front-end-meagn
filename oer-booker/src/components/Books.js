@@ -7,12 +7,12 @@ const Books = props => {
             {props.books.map((b, i) => {
                 return(
                     <div className='card-container' key={i}>
-                            {b.subject}
+                            <h2>{b.subject}</h2>
                             <img src={b.image} alt={'book'} /> <br/>
-                            <Link to={`/books/${b.id}`}>
-                                {b.title} <br/>
+                            <Link to={`/books/${b.id}`} style={{ textDecoration: 'none', color: 'rgb(51, 26, 0)' }}>
+                                <h3>{b.title}</h3> <br/>
                             </Link>
-                            {b.author} <br/>
+                            <h4>{b.author}</h4> <br/>
                     </div>
                 )
             })}

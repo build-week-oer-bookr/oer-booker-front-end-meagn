@@ -91,6 +91,7 @@ class SingleBook extends React.Component {
           })
           .catch( err => err.data)
       }
+    
 
 
     showModal = () => {
@@ -124,7 +125,8 @@ class SingleBook extends React.Component {
                             <p>{review.rating}</p>
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
-                            <i class="fas fa-eraser" onClick={e => this.deleteReview(e, review.id)}>Remove Review</i>
+                            <button onClick={e => this.deleteReview(e, review.id)}><i class="fas fa-eraser">Remove Review</i></button>
+                            <button onClick={e => this.updateReview(e, review.id)}><i class="fas fa-edit">Edit Review</i></button>
                             {/* <button onClick={e => this.deleteReview(e, review.id)}>Delete</button> */}
                         
                             <Modal show={this.state.show} handleClose={this.hideModal}>

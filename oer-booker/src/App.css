@@ -31,11 +31,54 @@
     transform: rotate(360deg);
   }
 }
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin: 75px 0 0 0;
 
-img {
-  max-width: 100px;
-  max-height: 150px;
 }
+
+.books-container .card-container {
+  height: 375px;
+  width: 250px;
+  margin: 0 15px 25px 15px;
+  background-color: white;
+  text-decoration: none;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgb(51, 51, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-container h2 {
+  color: grey;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.card-container img {
+  height: 175px;
+  width: 120px
+}
+
+.card-container h3 {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 15px 10px 10px 10px;
+}
+
+.card-container h4 {
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0;
+}
+
+
 
 .modal {
   position: fixed;
