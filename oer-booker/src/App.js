@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink, Route, withRouter } from 'react-router-dom';
 import SignIn from './components/Signin';
 import Register from './components/Register';
+import Header from './components/Header';
 import BooksView from './views/BooksView';
 import BookView from './views/BookView';
 import './App.css';
@@ -21,6 +22,7 @@ class App extends Component {
         <div className='app-container'>
           <Route path='/login' component={SignIn} />
           <Route path='/register' component={Register} />
+          <Header />
           <Route exact path='/books' component={BooksView} />
           <Route path='/books/:id' component={BookView} />
         </div>
