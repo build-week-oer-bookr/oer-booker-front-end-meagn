@@ -16,12 +16,18 @@ class SingleBook extends React.Component {
             }
         }
     }
-
+  
     componentDidMount() {
         this.getReviews();
         let singleReview = {...this.state.singleReview}
         singleReview.book_id = Number(this.props.match.params.id);
         this.setState({singleReview})
+        
+    }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.update ? this.props.updateReview(this.state) : this.props.addReview(this.state)
     }
 
 
@@ -91,6 +97,20 @@ class SingleBook extends React.Component {
           })
           .catch( err => err.data)
       }
+
+      updateReview = (e, id) => {
+        const endpoint =
+        `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
+        axios
+        .put(endpoint, this.state.singleReview)
+        .then(res => {
+            console.log(res);
+            this.getReviews();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
     
 
 
@@ -126,11 +146,11 @@ class SingleBook extends React.Component {
                             <p>{review.review}</p>
                             <p>{review.reviewer}</p>
                             <button onClick={e => this.deleteReview(e, review.id)}><i class="fas fa-eraser">Remove Review</i></button>
-                            <button onClick={e => this.updateReview(e, review.id)}><i class="fas fa-edit">Edit Review</i></button>
+                            <button type='button' onClick={this.showModal}><i class="fas fa-edit">Edit Review</i></button>
                             {/* <button onClick={e => this.deleteReview(e, review.id)}>Delete</button> */}
                         
                             <Modal show={this.state.show} handleClose={this.hideModal}>
-                                <form>
+                                <form onSubmit={this.handleSubmit}>
                                     <input
                                         type='text'
                                         placeholder='Add a review'
@@ -138,6 +158,7 @@ class SingleBook extends React.Component {
                                         name='review'
                                         onChange={this.handleReviewChanges}
                                     />
+                                    <div class="baseline" />
                                     <input
                                         type='text'
                                         placeholder='Add a rating'
@@ -145,6 +166,7 @@ class SingleBook extends React.Component {
                                         name='rating'
                                         onChange={this.handleRatingChanges}
                                     />
+                                    <div class="baseline" />
                                     <input
                                         type='text'
                                         placeholder='Username'
@@ -152,8 +174,10 @@ class SingleBook extends React.Component {
                                         name='reviewer'
                                         onChange={this.handleReviewerChanges}
                                     />
+                                    <div class="baseline" />
                                 </form>
                                 <button onClick={this.addReview}>Add</button>
+                                <button onClick={this.updateReview}>Update Review</button>
                             </Modal>
                       </div>
                       </>

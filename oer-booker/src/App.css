@@ -19,7 +19,7 @@
 .books-container .card-container {
   height: 375px;
   width: 250px;
-  margin: 0 15px 25px 15px;
+  margin: 0 15px 30px 20px;
   background-color: white;
   text-decoration: none;
   color: black;
@@ -31,7 +31,7 @@
 }
 
 .card-container h2 {
-  color: grey;
+  color: rgb(51, 26, 0);
   font-size: 16px;
   font-weight: normal;
 }
