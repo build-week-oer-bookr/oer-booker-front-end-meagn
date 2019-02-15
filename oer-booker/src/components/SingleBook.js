@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import stackbooks from '../stackbooks.jpg';
 import '../App.css';
 
 class SingleBook extends React.Component {
@@ -98,19 +99,45 @@ class SingleBook extends React.Component {
           .catch( err => err.data)
       }
 
-      updateReview = (e, id) => {
+      updateReview = (e) => {
+        e.preventDefault();
+        if (!this.state.singleReview.id) return alert('Please click on a review to edit');
+        const id = this.state.singleReview.id;
+        console.log(id);
         const endpoint =
-        `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
+          `https://oer-bookr-api.herokuapp.com/reviews/${id}`;
+        const newReview = {
+          review: this.state.singleReview.review,
+          reviewer: this.state.singleReview.reviewer,
+          rating: this.state.singleReview.rating
+        };
         axios
-        .put(endpoint, this.state.singleReview)
-        .then(res => {
-            console.log(res);
+          .put(endpoint, newReview)
+          .then(res => {
+            console.log(res.data);
             this.getReviews();
-        })
-        .catch(err => {
-            console.log(err)
-        })
-    }
+            this.setState({
+              singleReview:  {
+                review: '',
+                reviewer: '',
+                rating: ''
+              }
+            })
+          })
+          .catch(err => console.log(err))
+
+      }
+
+      populateForm = (e, id) => {
+        e.preventDefault();
+        console.log(e);
+        this.setState({
+          singleReview: this.state.reviews.find(review => review.id === id),
+        });
+      }
+
+
+
     
 
 
